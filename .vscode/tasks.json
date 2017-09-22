@@ -7,3 +7,4 @@
       "command": "./node_modules/angular-cli-ghpages/bin/angular-cli-ghpages --branch=master"
     }
   ]
+}
