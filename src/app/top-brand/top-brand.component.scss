@@ -1,0 +1,22 @@
+@import '../shared/base';
+
+:host {
+  @extend .p-5;
+
+  background: $bg-color-inv-2;
+  color: $text-color-inv;
+
+  letter-spacing: 0.2rem;
+}
+
+h1 {
+  text-shadow: 2px 2px 2px $shadow-color;
+}
+
+a {
+  background: transparent;
+
+  &, &:hover {
+    color: $text-color-inv;
+  }
+}

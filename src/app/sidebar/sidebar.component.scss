@@ -1,0 +1,20 @@
+@import '../shared/base';
+
+:host {
+  @extend .d-flex, .flex-column, .pl-5, .pr-5, .pb-5;
+
+  background: $bg-color-inv-2;
+
+  @include media-breakpoint-down(xs) {
+    position: absolute;
+  }
+}
+
+.sidebar-link {
+  &::before {
+    content: '|>';
+    margin-right: 5px;
+
+    color: $text-color-inv;
+  }
+}

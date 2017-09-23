@@ -1,0 +1,10 @@
+@import '../shared/base';
+
+:host {
+  @extend .container, .d-block, .mt-5, .p-5;
+
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.75);
+
+  background: $bg-color-1;
+  color: $text-color-1;
+}

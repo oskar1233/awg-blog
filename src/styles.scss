@@ -1,4 +1,6 @@
-html, body, app-root {
+@import './app/shared/base';
+
+html, body {
   margin: 0;
 
   width: 100%;

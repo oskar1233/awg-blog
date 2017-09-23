@@ -1,0 +1,23 @@
+@import './shared/base';
+
+:host {
+  @extend .d-flex, .flex-column;
+
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  @extend .p-3;
+
+  flex: 1 1 auto;
+
+  box-shadow: inset 15px 15px 15px -15px $shadow-color;
+  background: $bg-color-inv-1;
+}
+
+.row-content {
+  @extend .d-flex, .flex-row;
+
+  flex: 0 1 100%;
+}
