@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Http } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '@angular/material';
@@ -23,7 +24,9 @@ import { TopBrandComponent } from './top-brand/top-brand.component';
     MaterialModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+    Http
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
