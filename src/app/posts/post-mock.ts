@@ -9,6 +9,9 @@ export class PostMock {
 
   public static wpGet1 = `{
     "id": 1,
+    "date": "2017-09-25T16:41:14",
+    "slug": "some-title",
+
     "title": {
       "rendered": "Some title"
     },
@@ -22,6 +25,9 @@ export class PostMock {
 
   public static wpGet2 = `{
     "id": 2,
+    "date": "2017-10-01T12:13:23",
+    "slug": "second-post",
+
     "title": {
       "rendered": "Second post"
     },
@@ -32,6 +38,11 @@ export class PostMock {
       "rendered": "Content of the second post"
     }
   }`;
+
+  public static get wpGetBySlug1() {
+
+    return '[' + PostMock.wpGet1 + ']';
+  }
 
   public static get wpIndex() {
     return '[' + PostMock.wpGet1 + ',' + PostMock.wpGet2 + ']';

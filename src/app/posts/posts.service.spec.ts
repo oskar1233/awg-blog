@@ -78,6 +78,8 @@ describe('PostsService', () => {
           expect(post instanceof Post).toBeTruthy();
 
           expect(post.id).toEqual(1);
+          expect(post.date).toBeDefined();
+          expect(post.slug).toBeDefined();
           expect(post.excerpt).toBeDefined();
           expect(post.content).toBeDefined();
           expect(post.title).toBeDefined();
@@ -106,7 +108,7 @@ describe('PostsService', () => {
         )
 
       this.service.index().subscribe((posts: Array<Post>) => {
-        expect(posts instanceof Array);
+        expect(posts instanceof Array).toBeTruthy();
         expect(posts.length).toBeGreaterThan(1);
 
         for(let p of posts) {
@@ -115,6 +117,32 @@ describe('PostsService', () => {
         
         done();
       })
+    });
+  });
+
+  describe('#getBySlug', () => {
+    it('should return post of specified slug', (done) => {
+      this.mockBackend.connections.subscribe(
+        (connection: MockConnection) => {
+          expect(connection.request.method).toBe(RequestMethod.Get);
+
+          connection.mockRespond(new Response(
+            new ResponseOptions({
+              body: PostMock.wpGetBySlug1
+            })
+          ));
+        }
+      )
+
+      this.service.getBySlug('some-title').subscribe(
+        (post: Post) => {
+          expect(post instanceof Post).toBeTruthy();
+
+          expect(post.slug).toBe('some-title');
+
+          done();
+        }
+      )
     });
   });
 

@@ -18,13 +18,15 @@ export class PostsService {
 
     return new Post({
       id: postJson['id'],
+      slug: postJson['slug'] || null,
+      date: postJson['date'] || null,
       title: postJson['title']['rendered'] || null,
       content: postJson['content']['rendered'] || null,
       excerpt: postJson['excerpt']['rendered'] || null,
     })
   }
 
-  get(id : number): Observable<Post> {
+  get(id: number): Observable<Post> {
     if(!Number.isInteger(id)) return null;
 
     return new Observable((subscriber) => {
@@ -33,8 +35,21 @@ export class PostsService {
           let postJson = response.json();
 
           subscriber.next(this.postFromJson(postJson));
-        });
-    });
+        }
+      )
+    })
+  }
+
+  getBySlug(slug: string): Observable<Post> {
+    return new Observable((subscriber) => {
+      this.http.get(this.url + 'posts=' + slug).subscribe(
+        (response) => {
+          let postJson = response.json()[0];
+
+          subscriber.next(this.postFromJson(postJson));
+        }
+      )
+    })
   }
 
   index(): Observable<Array<Post>> {
