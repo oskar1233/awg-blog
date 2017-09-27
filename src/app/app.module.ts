@@ -8,12 +8,11 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
+import { PostsModule } from './posts/posts.module';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TopBrandComponent } from './top-brand/top-brand.component';
-import { PostComponent } from './posts/post.component';
-import { PostBySlugComponent } from './posts/post-by-slug.component';
 import { RootComponent } from './root/root.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -22,8 +21,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     SidebarComponent,
     TopBrandComponent,
-    PostComponent,
-    PostBySlugComponent,
     RootComponent,
     PageNotFoundComponent
   ],
@@ -31,6 +28,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     FlexLayoutModule,
     RouterModule,
+    PostsModule,
     AppRoutingModule
   ],
   providers: [

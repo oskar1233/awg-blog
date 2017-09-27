@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PostBySlugComponent } from './posts/post-by-slug.component';
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RootComponent } from './root/root.component';
 
@@ -16,7 +17,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      // { enableTracing: true }
+      { enableTracing: true }
     )
   ]
 })
