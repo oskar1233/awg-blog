@@ -1,19 +1,27 @@
 import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
 
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ContentComponent } from './content/content.component';
 import { TopBrandComponent } from './top-brand/top-brand.component';
+import { RootComponent } from './root/root.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PostComponent } from './posts/post.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         AppComponent,
         SidebarComponent,
-        ContentComponent,
-        TopBrandComponent
+        RootComponent,
+        TopBrandComponent,
+        PageNotFoundComponent,
+        PostComponent
       ],
     }).compileComponents();
   }));
