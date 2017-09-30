@@ -3,10 +3,14 @@
 :host {
   @extend .p-5;
 
+  position: relative;
+
   background: $bg-color-inv-2;
   color: $text-color-inv;
 
   letter-spacing: 0.2rem;
+
+  z-index: 9;
 }
 
 h1 {

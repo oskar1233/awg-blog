@@ -9,9 +9,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { Observable } from 'rxjs';
 
-import { PostMock } from './post-mock';
-import { PostComponent } from './post.component';
-import { PostsService } from './posts.service';
+import { FacebookService } from 'ngx-facebook';
+
+import { PostsModule } from '../posts.module';
+import { PostMock } from '../post/post-mock';
+import { PostComponent } from '../post/post.component';
+import { PostsService } from '../posts.service';
 import { PostBySlugComponent } from './post-by-slug.component';
 
 describe('PostBySlug', () => {
@@ -19,15 +22,16 @@ describe('PostBySlug', () => {
   let component: PostBySlugComponent;
   let fixture: ComponentFixture<PostBySlugComponent>;
   let mockBackend: MockBackend;
+  let postsService: PostsService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpModule,
-        RouterTestingModule
+        PostsModule,
+        RouterTestingModule,
+        HttpModule
       ],
       providers: [
-        PostsService,
         { provide: XHRBackend, useClass: MockBackend },
         {
           provide: ActivatedRoute,
@@ -35,17 +39,15 @@ describe('PostBySlug', () => {
             params: Observable.of({slug: 'some-title'}),
             paramMap: Observable.of({get: () => 'some-title'})
           }
-        }
-      ],
-      declarations: [
-        PostComponent,
-        PostBySlugComponent
+        },
+        { provide: FacebookService, useValue: {} }
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
+    postsService = TestBed.get(PostsService);
     mockBackend = TestBed.get(XHRBackend);
 
     mockBackend.connections.subscribe(
@@ -61,6 +63,7 @@ describe('PostBySlug', () => {
 
     fixture = TestBed.createComponent(PostBySlugComponent);
     component = fixture.componentInstance;
+    component.ngOnInit();
 
     componentElem = fixture.debugElement;
     fixture.detectChanges();
@@ -70,7 +73,8 @@ describe('PostBySlug', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render proper post', () => {
+  it('should render proper post', async(() => {
     expect(componentElem.nativeElement.textContent).toContain('Some title');
-  });
+  }));
+
 });

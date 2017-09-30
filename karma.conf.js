@@ -27,7 +27,8 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
+    flags: ['--disable-translate', '--disable-extensions'],
     singleRun: false
   });
 };

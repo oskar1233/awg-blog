@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptionsArgs } from '@angular/http';
 
-import { Post } from './post';
+import { Post } from './post/post';
 
 @Injectable()
 export class PostsService {
 
-  private url = 'https://klebek-uczuc.pl/wp-json/wp/v2/';
+  private url = 'http://wp.oskar1233.eu/wp-json/wp/v2/';
 
   constructor(
     private http: Http
   ) { }
 
   postFromJson(postJson) {
-    if(postJson['id'] === undefined) return null;
+    if (postJson === undefined || postJson['id'] === undefined) {
+      return null;
+    }
 
     return new Post({
       id: postJson['id'],
@@ -42,7 +44,7 @@ export class PostsService {
 
   getBySlug(slug: string): Observable<Post> {
     return new Observable((subscriber) => {
-      this.http.get(this.url + 'posts=' + slug).subscribe(
+      this.http.get(this.url + 'posts?slug=' + slug).subscribe(
         (response) => {
           let postJson = response.json()[0];
 
@@ -52,21 +54,38 @@ export class PostsService {
     })
   }
 
-  index(): Observable<Array<Post>> {
+  index(page: number = 1): Observable<{
+    meta: {
+      totalPages: number
+    },
+    posts: Array<Post>
+  }> {
+
     return new Observable((subscriber) => {
-      this.http.get(this.url + 'posts').subscribe(
+      let totalPages: number;
+
+      this.http.get(this.url + 'posts', {params: {page: page}}).subscribe(
         (response) => {
           let postsJson = response.json();
+
+          totalPages = +response.headers.get('X-WP-TotalPages');
 
           let posts = new Array<Post>();
           for(let postJson of postsJson) {
             posts.push(this.postFromJson(postJson));
           }
 
-          subscriber.next(posts);
+          subscriber.next({
+            meta: {
+              totalPages: totalPages
+            },
+            posts: posts
+          });
         }
       )
+
     })
+
   }
 
 }

@@ -1,0 +1,17 @@
+<a id='back-home' class='mb-4' [routerLink]="['/']">Back home</a>
+
+<div *ngIf="posts">
+  <ng-container *ngFor="let post of posts">
+    <app-post-excerpt [post]="post"></app-post-excerpt>
+  </ng-container>
+</div>
+
+<div *ngIf="!posts" class='text-center'>
+  <div *ngIf='!loadingFailed'>
+    Loading content...
+  </div>
+ 
+  <div *ngIf='loadingFailed'>
+    Error loading posts.
+  </div>
+</div>

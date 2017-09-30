@@ -1,0 +1,26 @@
+<a id='back-to-posts' class='mb-4' [routerLink]="['/posts']">Back to posts</a>
+
+<div *ngIf='!post' class='text-center'>
+  <div *ngIf='!loadingFailed'>
+    Loading content...
+  </div>
+ 
+  <div *ngIf='loadingFailed'>
+    Post not found.
+  </div>
+</div>
+
+<div *ngIf='post'>
+  <ng-container>
+    <h1 [innerHTML]="post.title"></h1>
+    <small>{{post.date}}</small>
+    <div [innerHTML]="post.content"></div>
+
+    <div class='mt-5 p-3 comments-container'>
+      <fb-comments numposts="5" width="100%" colorscheme="light">
+        {{parseXFBML()}}
+      </fb-comments>
+    </div>
+
+  </ng-container>
+</div>

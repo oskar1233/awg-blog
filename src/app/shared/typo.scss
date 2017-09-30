@@ -5,10 +5,10 @@ h1, h2, h3 {
 a {
   display: inline-block;
 
-  padding: 3px;
+  padding: 5px;
   margin: 1px 0;
 
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 
   &, &:visited {
     color: $text-color-a;
@@ -16,7 +16,15 @@ a {
 
   &:hover, &:focus {
     color: $text-color-a-hover;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     text-decoration: none;
+  }
+
+  &.inv {
+    background: rgba(255, 255, 255, 0.05);
+
+    &:hover, &:focus {
+      background: rgba(255, 255, 255, 0.1);
+    }
   }
 }

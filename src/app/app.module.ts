@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FacebookModule, FacebookService } from 'ngx-facebook';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PostsModule } from './posts/posts.module';
@@ -22,17 +24,19 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     SidebarComponent,
     TopBrandComponent,
     RootComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
+    FacebookModule.forRoot(),
+
     BrowserModule,
     FlexLayoutModule,
     RouterModule,
+    HttpModule,
+
+    AppRoutingModule,
+
     PostsModule,
-    AppRoutingModule
-  ],
-  providers: [
-    Http
   ],
   bootstrap: [AppComponent]
 })

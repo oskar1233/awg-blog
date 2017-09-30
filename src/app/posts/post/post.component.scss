@@ -1,0 +1,6 @@
+@import '../../shared/variables';
+
+.comments-container {
+  background: darken($bg-color-1, 15%);
+  box-shadow: inset 0 0 10px 0 $shadow-color;
+}

@@ -1,5 +1,7 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import { FacebookService } from 'ngx-facebook';
 
 import { AppComponent } from './app.component';
 
@@ -7,10 +9,17 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { TopBrandComponent } from './top-brand/top-brand.component';
 import { RootComponent } from './root/root.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PostComponent } from './posts/post.component';
 
 describe('AppComponent', () => {
+  let FacebookServiceMock = {
+    init: function() { }
+  }
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
+    spyOn(FacebookServiceMock, 'init');
+
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -21,21 +30,28 @@ describe('AppComponent', () => {
         RootComponent,
         TopBrandComponent,
         PageNotFoundComponent,
-        PostComponent
       ],
+      providers: [
+        { provide: FacebookService, useValue: FacebookServiceMock }
+      ]
     }).compileComponents();
   }));
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
+  })
+
+  it('should create the component', async(() => {
+    expect(component).toBeTruthy();
   }));
 
   it(`should have as title 'oskar1233'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('oskar1233');
+    expect(component.title).toEqual('oskar1233');
   }));
+
+  it('should init facebook sdk', () => {
+    expect(FacebookServiceMock.init).toHaveBeenCalled();
+  })
 
 });

@@ -1,0 +1,9 @@
+<div *ngIf='post' class='d-flex flex-column'>
+  <h1 [innerHTML]="post.title"></h1>
+  <div [innerHTML]="post.excerpt"></div>
+  <a class='mt-3 align-self-end' [routerLink]="getLinkArr()">Read more</a>
+</div>
+
+<div *ngIf='!post' class='text-center'>
+  <p>Error loading post.</p>
+</div>

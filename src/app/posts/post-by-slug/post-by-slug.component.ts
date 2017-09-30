@@ -3,15 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import { Post } from './post';
-import { PostsService } from './posts.service';
+import { Post } from '../post/post';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-post-by-slug',
   template: '<app-post [post]="post"></app-post>'
 })
 export class PostBySlugComponent implements OnInit {
-  private post: Post = new Post({});
+  private post: Post;
 
   constructor(
     private service: PostsService,
