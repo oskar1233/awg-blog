@@ -11,7 +11,7 @@ import { Post } from '../post/post';
   styleUrls: ['./newest-posts.component.scss']
 })
 export class NewestPostsComponent implements OnInit {
-  private posts: Post[];
+  public posts: Post[];
   private page: number;
 
   constructor(

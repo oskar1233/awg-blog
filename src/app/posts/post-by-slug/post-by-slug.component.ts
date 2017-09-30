@@ -11,7 +11,7 @@ import { PostsService } from '../posts.service';
   template: '<app-post [post]="post"></app-post>'
 })
 export class PostBySlugComponent implements OnInit {
-  private post: Post;
+  public post: Post;
 
   constructor(
     private service: PostsService,
