@@ -24,4 +24,4 @@ before_script:
 script:
   - karma start karma.conf.js --single-run
   - ng build --prod --base-href "$BASE_HREF" --verbose
-  - angular-cli-ghpages --repo=https://GH_TOKEN@github.com/oskar1233/oskar1233.github.io.git --name="oskar1233" --email=ooskar1233@yahoo.com --branch=master
+  - angular-cli-ghpages --repo=https://$GH_TOKEN@github.com/oskar1233/oskar1233.github.io.git --name="oskar1233" --email=ooskar1233@yahoo.com --branch=master
