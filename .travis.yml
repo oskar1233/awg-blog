@@ -18,14 +18,13 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
-- npm install -g angular-cli
-- npm install -g karma
-- npm install
-- ng build
+  - npm install -g angular-cli
+  - npm install -g karma
+  - npm i --silent --no-optional -g angular-cli-ghpages
+  - npm install
+  - ng build
 
 script:
-- karma start karma.conf.js --single-run
-
-deploy:
-- ng build --prod --base-href "$BASE_HREF"
-- angular-cli-ghpages --repo=https://GH_TOKEN@github.com/oskar1233/oskar1233.github.io.git --name="oskar1233" --email=ooskar1233@yahoo.com --branch=master
+  - karma start karma.conf.js --single-run
+  - ng build --prod --base-href "$BASE_HREF"
+  - angular-cli-ghpages --repo=https://GH_TOKEN@github.com/oskar1233/oskar1233.github.io.git --name="oskar1233" --email=ooskar1233@yahoo.com --branch=master
