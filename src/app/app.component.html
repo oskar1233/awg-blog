@@ -1,4 +1,4 @@
-<app-top-brand>
+<app-top-brand [ngClass]="{'scrolled': scrolled}">
   Loading brand...
 </app-top-brand>
 
@@ -8,7 +8,7 @@
     Loading menu...
   </app-sidebar>
 
-  <div class='main'>
+  <div (scroll)='scroll($event)' class='main'>
     <div class='content'>
       <router-outlet></router-outlet>
     </div>

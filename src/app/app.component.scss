@@ -1,7 +1,8 @@
 @import './shared/base';
 
 :host {
-  @extend .d-flex, .flex-column;
+  @extend .d-flex;
+  @extend .flex-column;
 
   position: relative;
   z-index: 1;
@@ -26,7 +27,14 @@
 }
 
 .row-content {
-  @extend .d-flex, .flex-row;
+  @extend .d-flex;
+
+  @include media-breakpoint-up('sm') {
+    flex-direction: row;
+  }
+  @include media-breakpoint-down('xs') {
+    flex-direction: column;
+  }
 
   position: relative;
   z-index: 1;
@@ -35,7 +43,10 @@
 }
 
 .content {
-  @extend .container, .d-block, .mt-5, .p-5;
+  @extend .container;
+  @extend .d-block;
+  @extend .mt-5;
+  @extend .p-5;
 
   position: relative;
   z-index: 1;

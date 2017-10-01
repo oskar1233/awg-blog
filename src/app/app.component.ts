@@ -8,6 +8,7 @@ import { FacebookService, InitParams } from 'ngx-facebook';
 })
 export class AppComponent {
   title = 'oskar1233';
+  scrolled: boolean = false;
 
   constructor(private fb: FacebookService) {
     fb.init({
@@ -15,5 +16,10 @@ export class AppComponent {
       xfbml: true,
       version: 'v2.10'
     })
+  }
+
+  scroll(event: Event) {
+    let mainElem: Element = <Element> event.target;
+    this.scrolled = mainElem.scrollTop != 0;
   }
 }

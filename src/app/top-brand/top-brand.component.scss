@@ -1,7 +1,24 @@
 @import '../shared/base';
 
 :host {
-  @extend .p-5;
+  $s5x: map-get(map-get($spacers, 5), x);
+  $s5y: map-get(map-get($spacers, 5), y);
+  $s2x: map-get(map-get($spacers, 2), x);
+  $s2y: map-get(map-get($spacers, 2), y);
+
+  @include media-breakpoint-up(sm) {
+    padding: $s5y $s5x;
+    transition: padding .3s;
+
+    &.scrolled {
+      padding: $s2y $s5x;
+      transition: padding .3s;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    padding: $s2y $s2x;
+  }
 
   position: relative;
 
