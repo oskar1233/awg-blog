@@ -1,10 +1,10 @@
 @import '../shared/base';
 
 :host {
-  $s5x: map-get(map-get($spacers, 5), x);
-  $s5y: map-get(map-get($spacers, 5), y);
-  $s2x: map-get(map-get($spacers, 2), x);
-  $s2y: map-get(map-get($spacers, 2), y);
+  $s5x: 3rem;//map-get(map-get($spacers, 5), x);
+  $s5y: 3rem;//map-get(map-get($spacers, 5), y);
+  $s2x: .5rem;//map-get(map-get($spacers, 2), x);
+  $s2y: .5rem;//map-get(map-get($spacers, 2), y);
 
   @include media-breakpoint-up(sm) {
     padding: $s5y $s5x;

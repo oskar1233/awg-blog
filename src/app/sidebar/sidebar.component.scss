@@ -2,8 +2,8 @@
 
 :host {
   @include media-breakpoint-up(sm) {
-    $s5x: map-get(map-get($spacers, 5), x);
-    $s5y: map-get(map-get($spacers, 5), y);
+    $s5x: 3rem;//map-get(map-get($spacers, 5), x);
+    $s5y: 3rem;//map-get(map-get($spacers, 5), y);
     padding: 0 $s5x $s5y $s5x;
 
     display: flex;
@@ -11,8 +11,8 @@
   }
 
   @include media-breakpoint-down(xs) {
-    $s3x: map-get(map-get($spacers, 3), x);
-    $s3y: map-get(map-get($spacers, 3), y);
+    $s3x: 1rem;//map-get(map-get($spacers, 3), x);
+    $s3y: 1rem;//map-get(map-get($spacers, 3), y);
 
     padding: 0 $s3x $s3y $s3x;
   }
