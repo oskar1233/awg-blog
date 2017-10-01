@@ -18,7 +18,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
-  - npm install -g angular-cli
+  - npm install -g @angular/cli
   - npm install -g karma
   - npm i --silent --no-optional -g angular-cli-ghpages
   - npm install
