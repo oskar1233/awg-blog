@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '@angular/material';
