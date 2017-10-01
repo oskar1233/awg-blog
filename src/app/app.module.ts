@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { FacebookModule, FacebookService } from 'ngx-facebook';
 
 import { AppRoutingModule } from './app-routing.module';
