@@ -29,7 +29,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FacebookModule.forRoot(),
 
     BrowserModule,
-    FlexLayoutModule,
     RouterModule,
     HttpModule,
 
