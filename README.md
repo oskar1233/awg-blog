@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/oskar1233/oskar1233.github.io.svg?branch=develop)](https://travis-ci.org/oskar1233/oskar1233.github.io)
+[![Build Status](https://travis-ci.org/oskar1233/awg-blog)](https://travis-ci.org/oskar1233/awg-blog)
 
-# oskar1233.eu
+# oskar1233.github.io/awg-blog/
 
-My personal webpage hosted on Github Pages.
+Sample Angular blog site using Wordpress REST API and Github Pages.
