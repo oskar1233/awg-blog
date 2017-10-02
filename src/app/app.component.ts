@@ -12,7 +12,7 @@ export class AppComponent {
 
   constructor(private fb: FacebookService) {
     fb.init({
-      appId: '1506876406015781',
+      appId: '1301342216676333',
       xfbml: true,
       version: 'v2.10'
     })
