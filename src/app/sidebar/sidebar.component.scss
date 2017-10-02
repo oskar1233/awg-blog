@@ -1,6 +1,10 @@
 @import '../shared/base';
 
 :host {
+  background: $bg-color-inv-2;
+  z-index: 8;
+  position: relative;
+
   @include media-breakpoint-up(sm) {
     $s5x: 3rem;//map-get(map-get($spacers, 5), x);
     $s5y: 3rem;//map-get(map-get($spacers, 5), y);
@@ -16,8 +20,6 @@
 
     padding: 0 $s3x $s3y $s3x;
   }
-
-  background: $bg-color-inv-2;
 }
 
 .sidebar-link {

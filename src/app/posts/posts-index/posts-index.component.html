@@ -2,7 +2,7 @@
 
 <div *ngIf="posts">
   <ng-container *ngFor="let post of posts">
-    <app-post-excerpt [post]="post"></app-post-excerpt>
+    <app-post-excerpt class='post-excerpt d-flex flex-column justify-content-stretch' [post]="post"></app-post-excerpt>
   </ng-container>
 </div>
 

@@ -1,0 +1,13 @@
+@import '../../shared/base';
+
+.post-excerpt {
+  $s3y: 1rem;//spacers[3][y]
+  $s4y: 1.5rem;//spacers[4][y]
+
+  & + & {
+    margin-top: $s4y;
+    padding-top: $s3y;
+
+    border-top: 1px solid rgba(black, 0.1);
+  }
+}
