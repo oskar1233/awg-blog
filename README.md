@@ -3,3 +3,5 @@
 # oskar1233.github.io/awg-blog/
 
 Sample Angular blog site using Wordpress REST API and Github Pages.
+
+I have also added Facebook comments here.
