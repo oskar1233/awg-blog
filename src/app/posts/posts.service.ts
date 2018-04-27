@@ -7,7 +7,7 @@ import { Post } from './post/post';
 @Injectable()
 export class PostsService {
 
-  private url = 'https://awg-wp.oskar1233.eu/wp-json/wp/v2/';
+  private url = 'https://techcrunch.com/wp-json/wp/v2';
 
   constructor(
     private http: Http
