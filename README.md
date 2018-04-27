@@ -4,4 +4,6 @@
 
 Sample Angular blog site using Wordpress REST API and Github Pages.
 
-I have also added Facebook comments here.
+Facebook comments involved.
+
+Fetches data from techcrunch.
